@@ -1,29 +1,32 @@
 <script setup>
 import Child from './components/Child.vue'
-import { onMounted, reactive, ref, watch, watchEffect } from 'vue'
+import ButtonCounter from './components/ButtonCounter.vue'
+import { onMounted, reactive, ref, shallowRef, watch, watchEffect } from 'vue'
 
-const nameInput = ref(null);
+function handleCounterClick(value) {
+  console.log('ButtonCounter', value);
+}
 
-const list = [1,2,3]
+function handleCounterSuperClick(value) {
+  console.log('handleCounterSuperClick', value);
+}
 
-const liItems = ref([])
-
-onMounted(() => {
-  nameInput.value.focus()
-  console.log(liItems.value);
-  console.log(child.value);
-})
-
-const child = ref(null)
-
+const tabs = shallowRef(['child', ButtonCounter])
+const currentTab = ref(0)
 </script>
 
 <template>
-  <input type="text" ref="nameInput">
-  <ul>
-    <li v-for="item of list" :key="item" ref="liItems">{{ item }}</li>
-  </ul>
-  <Child ref="child"/>
+  <!-- <Child /> -->
+  <component :is="Child"></component>
+  <br>
+  <ButtonCounter title="444" @click="handleCounterClick" @super-click="handleCounterSuperClick" />
+
+  <br>
+  <!-- currentTab 改变时组件也改变 -->
+  <keep-alive>
+    <component :is="tabs[currentTab]"></component>
+  </keep-alive>
+  <button @click="currentTab = (currentTab + 1) % 2">change component</button>
 </template>
 
 <style scoped>
