@@ -1,10 +1,11 @@
 <script setup>
 import Child from './components/Child.vue'
 import ButtonCounter from './components/ButtonCounter.vue'
-import ModelTest from './components/ModelTest.vue'
+// import ModelTest from './components/ModelTest.vue'
 import TestAttribute from './views/TestAttribute.vue'
-import SlotTest from './views/SlotTest.vue'
-import { onMounted, onUnmounted, reactive, ref, shallowRef, watch, watchEffect } from 'vue'
+// import SlotTest from './views/SlotTest.vue'
+import { onMounted, onUnmounted, provide, reactive, ref, shallowRef, watch, watchEffect } from 'vue'
+import { provideKey } from './utils/commonj'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -48,10 +49,16 @@ onUnmounted(() => {
   console.log('---clearTimeout:clock----');
   clock && clearTimeout(clock)
 })
+
+// ------------------------------------------
+provide('app', 'this is root node')
+const appMsg = ref('ref app msg')
+provide('appMsg', appMsg)
+provide(provideKey, 'bbc')
 </script>
 
 <template>
-  <Child />
+  <!-- <Child />
   <button>1123</button>
   <br>
 
@@ -67,12 +74,12 @@ onUnmounted(() => {
   </div>
   <br>
   <ModelTest v-model.capitalize="modelValue" v-model:title="modelTitle" />
-  <br>
+  <br> -->
 
   <TestAttribute v-model="attr" level="1" />
   <br>
 
-  <SlotTest>
+  <!-- <SlotTest>
     <template v-slot:header="">
       <span style="color:aquamarine">header</span>
     </template>
@@ -93,7 +100,7 @@ onUnmounted(() => {
   <SlotTest v-slot="{ mainValue }">
     <span style="color:red">child color is {{ mainValue }}</span>
   </SlotTest>
-  <br>
+  <br> -->
 </template>
 
 <style scoped>

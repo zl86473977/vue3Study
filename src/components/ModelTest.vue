@@ -1,4 +1,6 @@
 <script setup>
+import { inject } from "vue"
+import { provideKey } from '../utils/commonj'
 const props = defineProps({
     modelValue: String,
     modelModifiers: { type: Object, default: () => ({})},
@@ -22,6 +24,13 @@ function handleTitleChange(e) {
     }
     emit('update:title', value)
 }
+
+// ---------------------------------------------
+const app = inject('app');
+console.log('modelTest inject app is', app);
+const appMsg = inject('appMsg')
+const injectKey = inject(provideKey)
+console.log('provideKey is ', injectKey);
 </script>
 
 <template>
@@ -33,4 +42,7 @@ function handleTitleChange(e) {
             <input type="text" :value="title" @input="handleTitleChange">
         </li>
     </ul>
+
+    <div>appMsg is {{ appMsg }}</div>
+    <input type="text" v-model="appMsg">
 </template>
