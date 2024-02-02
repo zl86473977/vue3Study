@@ -6,6 +6,9 @@ import TestAttribute from './views/TestAttribute.vue'
 // import SlotTest from './views/SlotTest.vue'
 import { onMounted, onUnmounted, provide, reactive, ref, shallowRef, watch, watchEffect } from 'vue'
 import { provideKey } from './utils/commonj'
+import Mouse from './views/Mouse.vue'
+import Fetch from './views/Fetch.vue'
+import Directive from './views/Directive.vue'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -101,6 +104,12 @@ provide(provideKey, 'bbc')
     <span style="color:red">child color is {{ mainValue }}</span>
   </SlotTest>
   <br> -->
+
+  <Mouse />
+
+  <Fetch />
+
+  <Directive />
 </template>
 
 <style scoped>
