@@ -9,6 +9,7 @@ import { provideKey } from './utils/commonj'
 import Mouse from './views/Mouse.vue'
 import Fetch from './views/Fetch.vue'
 import Directive from './views/Directive.vue'
+import I18n from './views/I18n.vue'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -110,6 +111,8 @@ provide(provideKey, 'bbc')
   <Fetch />
 
   <Directive />
+
+  <I18n />
 </template>
 
 <style scoped>
