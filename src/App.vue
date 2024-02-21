@@ -10,6 +10,8 @@ import Mouse from './views/Mouse.vue'
 import Fetch from './views/Fetch.vue'
 import Directive from './views/Directive.vue'
 import I18n from './views/I18n.vue'
+import UploadFile from './views/UploadFile.vue'
+import UploadFile2 from './views/UploadFile2.vue'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -80,8 +82,8 @@ provide(provideKey, 'bbc')
   <ModelTest v-model.capitalize="modelValue" v-model:title="modelTitle" />
   <br> -->
 
-  <TestAttribute v-model="attr" level="1" />
-  <br>
+  <!-- <TestAttribute v-model="attr" level="1" />
+  <br> -->
 
   <!-- <SlotTest>
     <template v-slot:header="">
@@ -106,13 +108,16 @@ provide(provideKey, 'bbc')
   </SlotTest>
   <br> -->
 
-  <Mouse />
+  <!-- <Mouse /> -->
 
-  <Fetch />
+  <!-- <Fetch /> -->
 
-  <Directive />
+  <!-- <Directive /> -->
 
-  <I18n />
+  <!-- <I18n /> -->
+
+  <!-- <UploadFile /> -->
+  <UploadFile2 />
 </template>
 
 <style scoped>
