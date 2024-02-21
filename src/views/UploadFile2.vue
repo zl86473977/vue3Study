@@ -10,18 +10,30 @@ onMounted(() => {
     const startButton = document.querySelector('#startbutton');
 
     // 启动摄像头
-    async function startCamera() {
+    // async function startCamera() {
+    //     if (navigator.mediaDevices) {
+    //         hasMediaDevices.value = navigator.mediaDevices
+    //         const stream = await navigator.mediaDevices.getUserMedia({
+    //             video: true
+    //         });
+    //         video.srcObject = stream;
+    //         video.play();
+    //     } else {
+    //         hasMediaDevices.value = 'no media devices'
+    //     }
+    // }
+    function startCamera() {
         if (navigator.mediaDevices) {
             hasMediaDevices.value = navigator.mediaDevices
-            const stream = await navigator.mediaDevices.getUserMedia({
+            navigator.mediaDevices.getUserMedia({
                 video: true
-            });
-            video.srcObject = stream;
-            video.play();
+            }).then((stream) => {
+                video.srcObject = stream;
+                video.play();
+            })
         } else {
             hasMediaDevices.value = 'no media devices'
         }
-
     }
 
     // 拍照
