@@ -117,7 +117,7 @@ provide(provideKey, 'bbc')
   <!-- <I18n /> -->
 
   <UploadFile />
-  <!-- <UploadFile2 /> -->
+  <UploadFile2 />
 </template>
 
 <style scoped>
