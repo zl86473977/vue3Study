@@ -1,5 +1,6 @@
 <script setup>
 // 此方法在safari浏览器有效, 在via浏览器无效会闪退
+// 此方法会调用camera然后获取到拍摄的图片
 import { onMounted, ref } from 'vue';
 const imgUrl = ref('')
 

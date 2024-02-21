@@ -1,5 +1,6 @@
 <script setup>
 // 此方法需要localhost或者file模式或者https打开才行
+// 此方法是在浏览器不关闭的情况下调用相机，理论上是video组件可以展示相机的拍摄画面，点击拍照后可以拍摄图片，这个过程一直在浏览器进行
 import { onMounted, ref } from 'vue';
 
 const hasMediaDevices = ref('')

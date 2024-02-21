@@ -12,6 +12,7 @@ import Directive from './views/Directive.vue'
 import I18n from './views/I18n.vue'
 import UploadFile from './views/UploadFile.vue'
 import UploadFile2 from './views/UploadFile2.vue'
+import UploadFileCSDN from './views/UploadFileCSDN.vue'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -117,7 +118,8 @@ provide(provideKey, 'bbc')
   <!-- <I18n /> -->
 
   <UploadFile />
-  <UploadFile2 />
+  <!-- <UploadFile2 /> -->
+  <UploadFileCSDN />
 </template>
 
 <style scoped>
