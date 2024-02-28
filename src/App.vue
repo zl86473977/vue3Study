@@ -13,6 +13,9 @@ import I18n from './views/I18n.vue'
 import UploadFile from './views/UploadFile.vue'
 import UploadFile2 from './views/UploadFile2.vue'
 import UploadFileCSDN from './views/UploadFileCSDN.vue'
+import UploadFileElementPlus from './views/UploadFileElementPlus.vue'
+import LocationGet from './views/LocationGet.vue'
+import BuildInComp from './views/BuildInComp.vue'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -117,9 +120,13 @@ provide(provideKey, 'bbc')
 
   <!-- <I18n /> -->
 
-  <UploadFile />
+  <!-- <UploadFile /> -->
   <!-- <UploadFile2 /> -->
-  <UploadFileCSDN />
+  <!-- <UploadFileCSDN /> -->
+  <!-- <UploadFileElementPlus /> -->
+
+  <!-- <LocationGet /> -->
+  <BuildInComp />
 </template>
 
 <style scoped>

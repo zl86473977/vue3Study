@@ -4,6 +4,7 @@
 import { onMounted, ref } from 'vue';
 const imgUrl = ref('')
 
+
 onMounted(() => {
     var input = document.querySelector("input[type=file]");
     input.addEventListener("change", function (e) {
@@ -21,10 +22,23 @@ onMounted(() => {
         reader.readAsDataURL(file);
     });
 })
+
+const inputUpload = ref()
+const errMsg = ref('')
+function handleUpload() {
+    if (inputUpload) {
+        inputUpload.value.click()
+    } else {
+        errMsg.value = "--------------error-------------"
+    }
+}
 </script>
 <template>
     <div>
-        <input type="file" accept="image/*" capture="camera">
+        <input ref="inputUpload" type="file" accept="image/*" capture
+            style="position: absolute; top: -9999px; left: -9999px">
         <img v-show="imgUrl !== ''" :src="imgUrl" style="width:100px;height:100px;">
+        <button @click="handleUpload">这是自定义的点击上传按钮</button>
+        <div>{{ errMsg }}</div>
     </div>
 </template>
