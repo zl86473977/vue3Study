@@ -19,6 +19,7 @@
 <script setup>
 import { ref } from "vue";
 import { ElUpload as ElUploadLeo } from "element-plus";
+import 'element-plus/dist/index.css'
 
 const imageUrl = ref("");
 const errorInfo = ref("");
