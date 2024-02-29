@@ -16,6 +16,8 @@ import UploadFileCSDN from './views/UploadFileCSDN.vue'
 // import UploadFileElementPlus from './views/UploadFileElementPlus.vue'
 import LocationGet from './views/LocationGet.vue'
 import BuildInTransition from './views/BuildInTransition.vue'
+import BuildInTransitionGroup from './views/BuildInTransitionGroup.vue'
+import BuildInTeleport from './views/BuildInTeleport.vue'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -65,6 +67,7 @@ provide('app', 'this is root node')
 const appMsg = ref('ref app msg')
 provide('appMsg', appMsg)
 provide(provideKey, 'bbc')
+
 </script>
 
 <template>
@@ -125,8 +128,17 @@ provide(provideKey, 'bbc')
   <!-- <UploadFileCSDN /> -->
   <!-- <UploadFileElementPlus /> -->
 
+  <!-- 内置组件 -->
   <!-- <LocationGet /> -->
-  <BuildInTransition />
+  <!-- <BuildInTransition /> -->
+  <!-- <BuildInTransitionGroup />  -->
+  <!-- <keep-alive>
+    <component :is="tabs[currentTab]"></component>
+  </keep-alive>
+  <div>
+    <button @click="currentTab = (currentTab + 1) % 2">change component</button>
+  </div> -->
+  <BuildInTeleport />
 </template>
 
 <style scoped>

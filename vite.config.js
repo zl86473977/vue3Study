@@ -15,10 +15,10 @@ export default ({ mode }) => {
     },
     server: {
       proxy: {
-        '/baidu': {
-          target: 'https://api.map.baidu.com/reverse_geocoding/v3/',
+        "/baidu": {
+          target: "https://api.map.baidu.com/reverse_geocoding/v3/",
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/baidu/, ''),
+          rewrite: (path) => path.replace(/^\/baidu/, ""),
         },
       },
     },
