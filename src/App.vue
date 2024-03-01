@@ -18,6 +18,7 @@ import LocationGet from './views/LocationGet.vue'
 import BuildInTransition from './views/BuildInTransition.vue'
 import BuildInTransitionGroup from './views/BuildInTransitionGroup.vue'
 import BuildInTeleport from './views/BuildInTeleport.vue'
+import AsyncValidator from './views/AsyncValidator.vue'
 
 function handleCounterClick(value) {
   console.log('ButtonCounter', value);
@@ -138,7 +139,8 @@ provide(provideKey, 'bbc')
   <div>
     <button @click="currentTab = (currentTab + 1) % 2">change component</button>
   </div> -->
-  <BuildInTeleport />
+  <!-- <BuildInTeleport /> -->
+  <AsyncValidator />
 </template>
 
 <style scoped>
