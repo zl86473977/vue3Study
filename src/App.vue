@@ -1,74 +1,83 @@
 <script setup>
-import Child from './components/Child.vue'
-import ButtonCounter from './components/ButtonCounter.vue'
+import Child from "./components/Child.vue";
+import ButtonCounter from "./components/ButtonCounter.vue";
 // import ModelTest from './components/ModelTest.vue'
-import TestAttribute from './views/TestAttribute.vue'
+import TestAttribute from "./views/TestAttribute.vue";
 // import SlotTest from './views/SlotTest.vue'
-import { onMounted, onUnmounted, provide, reactive, ref, shallowRef, watch, watchEffect } from 'vue'
-import { provideKey } from './utils/commonj'
-import Mouse from './views/Mouse.vue'
-import Fetch from './views/Fetch.vue'
-import Directive from './views/Directive.vue'
-import I18n from './views/I18n.vue'
-import UploadFile from './views/UploadFile.vue'
-import UploadFile2 from './views/UploadFile2.vue'
-import UploadFileCSDN from './views/UploadFileCSDN.vue'
+import {
+  onMounted,
+  onUnmounted,
+  provide,
+  reactive,
+  ref,
+  shallowRef,
+  watch,
+  watchEffect,
+} from "vue";
+import { provideKey } from "./utils/commonj";
+import Mouse from "./views/Mouse.vue";
+import Fetch from "./views/Fetch.vue";
+import Directive from "./views/Directive.vue";
+import I18n from "./views/I18n.vue";
+import UploadFile from "./views/UploadFile.vue";
+import UploadFile2 from "./views/UploadFile2.vue";
+import UploadFileCSDN from "./views/UploadFileCSDN.vue";
 // import UploadFileElementPlus from './views/UploadFileElementPlus.vue'
-import LocationGet from './views/LocationGet.vue'
-import BuildInTransition from './views/BuildInTransition.vue'
-import BuildInTransitionGroup from './views/BuildInTransitionGroup.vue'
-import BuildInTeleport from './views/BuildInTeleport.vue'
-import AsyncValidator from './views/AsyncValidator.vue'
+import LocationGet from "./views/LocationGet.vue";
+import BuildInTransition from "./views/BuildInTransition.vue";
+import BuildInTransitionGroup from "./views/BuildInTransitionGroup.vue";
+import BuildInTeleport from "./views/BuildInTeleport.vue";
+import AsyncValidator from "./views/AsyncValidator.vue";
+import Chart from './views/Chart.vue'
 
 function handleCounterClick(value) {
-  console.log('ButtonCounter', value);
+  console.log("ButtonCounter", value);
 }
 function handleCounterSuperClick(value) {
-  console.log('handleCounterSuperClick', value);
+  console.log("handleCounterSuperClick", value);
 }
 
 // -------------------------------------------
 
-const tabs = shallowRef([Child, ButtonCounter])
-const currentTab = ref(0)
+const tabs = shallowRef([Child, ButtonCounter]);
+const currentTab = ref(0);
 function handleSiki() {
-  console.log('---handleSiki---');
+  console.log("---handleSiki---");
 }
 
 // -------------------------------------------
-const modelValue = ref('this is modelValue')
-const modelTitle = ref('this is modelTitle')
+const modelValue = ref("this is modelValue");
+const modelTitle = ref("this is modelTitle");
 
 // -------------------------------------------
-const attr = ref('attr')
+const attr = ref("attr");
 
 // -------------------------------------------
-const slotValue = ref('header')
+const slotValue = ref("header");
 const clock = setInterval(() => {
   switch (slotValue.value) {
-    case 'header':
-      slotValue.value = 'default'
+    case "header":
+      slotValue.value = "default";
       break;
-    case 'default':
-      slotValue.value = 'footer'
+    case "default":
+      slotValue.value = "footer";
       break;
-    case 'footer':
-      slotValue.value = 'header'
+    case "footer":
+      slotValue.value = "header";
       break;
   }
-}, 3000)
+}, 3000);
 
 onUnmounted(() => {
-  console.log('---clearTimeout:clock----');
-  clock && clearTimeout(clock)
-})
+  console.log("---clearTimeout:clock----");
+  clock && clearTimeout(clock);
+});
 
 // ------------------------------------------
-provide('app', 'this is root node')
-const appMsg = ref('ref app msg')
-provide('appMsg', appMsg)
-provide(provideKey, 'bbc')
-
+provide("app", "this is root node");
+const appMsg = ref("ref app msg");
+provide("appMsg", appMsg);
+provide(provideKey, "bbc");
 </script>
 
 <template>
@@ -97,24 +106,24 @@ provide(provideKey, 'bbc')
     <template v-slot:header="">
       <span style="color:aquamarine">header</span>
     </template>
-    <template #default>
+<template #default>
       <span style="color:brown">具名的插槽会被提取出去,剩下的都作为默认插槽</span>
     </template>
-    <template #footer="{ footerValue }">
+<template #footer="{ footerValue }">
       <span :style="{ color: footerValue }">footer slot value is {{ footerValue }}</span>
     </template>
-  </SlotTest>
-  <br>
-  <SlotTest>
-    <template #[slotValue]>
+</SlotTest>
+<br>
+<SlotTest>
+  <template #[slotValue]>
       <span style="color:red">this is dinamic slot,slot now is {{ slotValue }}</span>
     </template>
-  </SlotTest>
-  <br>
-  <SlotTest v-slot="{ mainValue }">
-    <span style="color:red">child color is {{ mainValue }}</span>
-  </SlotTest>
-  <br> -->
+</SlotTest>
+<br>
+<SlotTest v-slot="{ mainValue }">
+  <span style="color:red">child color is {{ mainValue }}</span>
+</SlotTest>
+<br> -->
 
   <!-- <Mouse /> -->
 
@@ -140,11 +149,12 @@ provide(provideKey, 'bbc')
     <button @click="currentTab = (currentTab + 1) % 2">change component</button>
   </div> -->
   <!-- <BuildInTeleport /> -->
-  <AsyncValidator />
+  <!-- <AsyncValidator /> -->
+  <Chart />
 </template>
 
 <style scoped>
-button+button {
+button + button {
   margin-left: 10px;
 }
 </style>
