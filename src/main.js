@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import ElementPlus from 'element-plus'
 import { myPlugin } from './utils/plugins'
-
+import router from './router'
 const app = createApp(App)
 app.use(ElementPlus)
 app.use(myPlugin, {
@@ -12,5 +12,5 @@ app.use(myPlugin, {
         role: 'developer'
     }
 })
-
+app.use(router)
 app.mount('#app')
